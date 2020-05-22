@@ -41,10 +41,10 @@ def get_int_vlan_map(config_filename):
                         intf = i.split()[1]
                   elif i.find('access')!= -1:
                         if i.split()[-1] == 'access':
-                              access[intf] = '1'
-                        else: access[intf] = i.split()[-1]    
+                              access[intf] = 1
+                        else: access[intf] = int(i.split()[-1])    
                   elif i.find('trunk allowed vlan')!= -1:
-                        trunk[intf] = (i.split()[-1]).split(',')
+                        trunk[intf] = [int(j) for j in (i.split()[-1]).split(',')]
                   else: continue
       return (access,trunk)
          

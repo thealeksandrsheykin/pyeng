@@ -60,9 +60,10 @@ def generate_trunk_config(intf_vlan_mapping, trunk_template):
       for intf,vlans in intf_vlan_mapping.items():
             result.append(f'interface {intf}')
             for i in trunk_template:
+
                   if i.endswith('allowed vlan'):
                         vlans = [str(i) for i in vlans] 
-                        result.append('{} {} '.format(i,','.join(vlans)))
+                        result.append('{} {}'.format(i,','.join(vlans)))
                   else: result.append(i)
       return result
 

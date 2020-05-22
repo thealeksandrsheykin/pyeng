@@ -40,14 +40,14 @@ def get_int_vlan_map(config_filename):
                   if i.find('FastEthernet') != -1:
                         intf = i.split()[1]
                   elif i.find('access vlan')!= -1:
-                        access[intf] = i.split()[-1]    
+                        access[intf] = int(i.split()[-1])    
                   elif i.find('trunk allowed vlan')!= -1:
-                        trunk[intf] = (i.split()[-1]).split(',')
+                        trunk[intf] = [int(j) for j in (i.split()[-1]).split(',')]
                   else: continue
       return (access,trunk)
          
 
-
-ports = get_int_vlan_map('config_sw1.txt')
-for i in ports:
-      print(i)
+if __name__ == '__main__':
+      ports = get_int_vlan_map('config_sw1.txt')
+      for i in ports:
+            print(i)

@@ -77,7 +77,7 @@ def generate_access_config(intf_vlan_mapping, access_template):
     return result
 
 
-
-ports = generate_access_config(access_config,access_mode_template)
-print(ports)
+if __name__ == '__main__':
+    ports = generate_access_config(access_config,access_mode_template)
+    print(ports)
 
