@@ -63,5 +63,4 @@ vlans =input('Введите номер влан(ов): ')
 
 print('\n'+ '-'*30)
 print('interface {}'.format(interface))
-
 print('\n'.join(locals().get(mode+'_template')).format(vlans))
